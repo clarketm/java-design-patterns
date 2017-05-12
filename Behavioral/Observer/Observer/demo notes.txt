@@ -1,0 +1,43 @@
+
+//Message Stream
+
+package com.pluralsight.observer;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
+
+public class MessageStream extends Subject {
+
+	private Deque<String> messageHistory = new ArrayDeque<>();
+	
+	public void setState(String message) {
+		messageHistory.add(message);
+		this.notifyObservers();
+	}
+	
+	public String getState() {
+		return messageHistory.getLast();
+	}
+}
+
+
+//tablet client
+
+package com.pluralsight.observer;
+
+public class TabletClient extends Observer {
+
+	public TabletClient (Subject subject) {
+		this.subject = subject;
+		subject.attach(this);
+	}
+	
+	public void addMessage(String message) {
+		subject.setState(message + " - sent from tablet");
+	}
+	
+	@Override
+	void update() {
+		System.out.println("Tablet Stream: " + subject.getState());
+	}
+}

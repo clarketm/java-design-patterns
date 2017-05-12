@@ -1,0 +1,127 @@
+package com.pluralsight.proxy;
+
+public interface TwitterService {
+	public String getTimeline(String screenName);
+	public void postToTimeline(String screenName, String message);
+}
+
+////////////////////////////////////////////////////////////////////////
+
+public static Object newInstance(Object obj) {
+    return java.lang.reflect.Proxy.newProxyInstance(obj.getClass().getClassLoader(), obj
+            .getClass().getInterfaces(), new SecurityProxy(obj));
+}
+
+public Object invoke(Object proxy, Method m, Object[] args) throws Throwable {
+    Object result;
+    try {
+        result = m.invoke(obj, args);
+    } catch (InvocationTargetException e) {
+        throw e.getTargetException(); 
+    } catch (Exception e) {
+        throw new RuntimeException("unexpected invocation exception: " 
+        		+ e.getMessage());
+    }
+    return result;
+}
+
+////////////////////////////////////////////////////////////////////////
+
+package com.pluralsight.proxy;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
+public class SecurityProxy implements java.lang.reflect.InvocationHandler {
+
+    private Object obj;
+
+    public static Object newInstance(Object obj) {
+        return java.lang.reflect.Proxy.newProxyInstance(obj.getClass().getClassLoader(), obj
+                .getClass().getInterfaces(), new SecurityProxy(obj));
+    }
+
+    private SecurityProxy(Object obj) {
+        this.obj = obj;
+    }
+
+    public Object invoke(Object proxy, Method m, Object[] args) throws Throwable {
+        Object result;
+        try {
+            result = m.invoke(obj, args);
+        } catch (InvocationTargetException e) {
+            throw e.getTargetException(); 
+        } catch (Exception e) {
+            throw new RuntimeException("unexpected invocation exception: " 
+            		+ e.getMessage());
+        }
+        return result;
+    }
+}
+
+////////////////////////////////////////////////////////////////////////
+
+TwitterService service = (TwitterService) SecurityProxy.newInstance(new TwitterServiceImpl());
+		
+System.out.println(service.getTimeline("bh5k"));
+
+////////////////////////////////////////////////////////////////////////
+
+package com.pluralsight.proxy;
+
+import java.util.List;
+
+import twitter4j.Query;
+import twitter4j.QueryResult;
+import twitter4j.Status;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
+import twitter4j.conf.ConfigurationBuilder;
+
+public class TwitterServiceImpl implements TwitterService {
+
+	private static final String TWITTER_CONSUMER_KEY = "PUT_YOUR_VALUES_HERE";
+	private static final String TWITTER_SECRET_KEY = "PUT_YOUR_VALUES_HERE";
+	private static final String TWITTER_ACCESS_TOKEN = "PUT_YOUR_VALUES_HERE";
+	private static final String TWITTER_ACCESS_TOKEN_SECRET = "PUT_YOUR_VALUES_HERE";
+	
+	@Override
+	public String getTimeline(String screenName) {
+		
+		ConfigurationBuilder cb = new ConfigurationBuilder();
+		cb.setDebugEnabled(true)
+		    .setOAuthConsumerKey(TWITTER_CONSUMER_KEY)
+		    .setOAuthConsumerSecret(TWITTER_SECRET_KEY)
+		    .setOAuthAccessToken(TWITTER_ACCESS_TOKEN)
+		    .setOAuthAccessTokenSecret(TWITTER_ACCESS_TOKEN_SECRET);
+		TwitterFactory tf = new TwitterFactory(cb.build());
+		Twitter twitter = tf.getInstance();
+		StringBuilder builder = new StringBuilder();
+		try {
+		    Query query = new Query(screenName);
+		    QueryResult result;
+		    do {
+		        result = twitter.search(query);
+		        List<Status> tweets = result.getTweets();
+		        for (Status tweet : tweets) {
+		            builder.append("@" + tweet.getUser().getScreenName() + " - " + tweet.getText());
+		            builder.append("\n");
+		        }
+		    } while ((query = result.nextQuery()) != null);
+		    
+		} catch (TwitterException te) {
+		    te.printStackTrace();
+		    System.out.println("Failed to search tweets: " + te.getMessage());
+		}
+		return builder.toString();	
+	}
+
+	@Override
+	public void postToTimeline(String screenName, String message) {
+		//we aren't going to allow this
+	}
+}
+
+
+////////////////////////////////////////////////////////////////////////

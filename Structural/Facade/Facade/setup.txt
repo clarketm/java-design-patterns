@@ -1,0 +1,6 @@
+These examples were ran in a Java project that was created in Eclipse/Spring STS. 
+
+There are no special libraries needed and should run with Java 1.7+. This example does use Derby to run the database example. If you need an example of how to set that up, please refer to the Singleton module of the Creational Patterns Course, http://www.pluralsight.com/courses/design-patterns-java-creational
+
+The source is expecting a package structure of com.pluralsight.facade and should
+be able to Run As from there.

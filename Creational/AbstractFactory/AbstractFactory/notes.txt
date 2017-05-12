@@ -1,0 +1,23 @@
+
+
+
+
+public abstract CreditCard getCreditCard(CardType cardType);
+	
+public abstract Validator getValidator(CardType cardType);
+
+
+
+//////////////////
+
+
+		switch (cardType) {
+			case GOLD:
+				
+				return new AmexGoldValidator();
+	
+			case PLATINUM:
+				
+				return new AmexPlatinumValidator();	
+			
+		}

@@ -1,0 +1,6 @@
+These examples were ran in a Java project that was created in Eclipse/Spring STS. 
+
+There are no special libraries needed and should run with Java 1.7+. The Flyweight pattern does use a Factory, refer to the Factory module of the Creational Patterns Course, http://www.pluralsight.com/courses/design-patterns-java-creational if you need help setting one up.
+
+The source is expecting a package structure of com.pluralsight.flyweight and should
+be able to Run As from there.

@@ -1,0 +1,42 @@
+StringTokenizer st = new StringTokenizer(str);
+while (st.hasMoreTokens()) {
+	String test = st.nextToken();
+	if (test.equals(data)) {
+		return true;
+	}
+}
+return false;
+
+//------------------and
+
+package com.pluralsight.interpreter;
+
+public class AndExpression implements Expression {
+
+	private Expression expr1 = null;
+	private Expression expr2 = null;
+
+	public AndExpression(Expression expr1, Expression expr2) {
+		this.expr1 = expr1;
+		this.expr2 = expr2;
+	}
+
+	@Override
+	public boolean interpret(String context) {
+		return expr1.interpret(context) && expr2.interpret(context);
+	}
+}
+
+//------------------expression tree 
+
+Expression terminal1 = new TerminalExpression("Lions");
+Expression terminal2 = new TerminalExpression("Tigers");
+Expression terminal3 = new TerminalExpression("Bears");
+
+// Tigers and Bears
+Expression alternation1 = new AndExpression(terminal2, terminal3);
+
+//Lions or (Tigers and Bears)
+Expression alternation2 = new OrExpression(terminal1, alternation1);
+
+return new AndExpression(terminal3, alternation2);

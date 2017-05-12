@@ -1,0 +1,55 @@
+//////////////////////////////// Menu Component //////////////////////////////////////////
+
+	String print(MenuComponent menuComponent) {
+		StringBuilder builder = new StringBuilder(name);
+		builder.append(": ");
+		builder.append(url);
+		builder.append("\n");
+		return builder.toString();
+	}
+
+public MenuComponent add(MenuComponent menuComponent) {
+	throw new UnsupportedOperationException("Feature not implemented at this level");
+}
+
+public MenuComponent remove(MenuComponent menuComponent) {
+	throw new UnsupportedOperationException("Feature not implemented at this level");
+}
+
+////////////////////////////// Menu /////////////////////////////////////////////
+
+
+	// @Override
+	public MenuComponent add(MenuComponent menuComponent) {
+		menuComponents.add(menuComponent);
+		return menuComponent;
+	}
+	
+	// @Override
+	public MenuComponent remove(MenuComponent menuComponent) {
+		menuComponents.remove(menuComponent);
+		return menuComponent;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder(); //builder pattern
+		
+		builder.append(print(this));
+		
+		Iterator<MenuComponent> itr = menuComponents.iterator();
+		while(itr.hasNext()) {
+			MenuComponent menuComponent = itr.next();
+			builder.append(menuComponent.toString());
+		}
+		
+		return builder.toString();
+	}
+
+
+//////////////////////////////// Menu Item ///////////////////////////////////////////
+
+	@Override
+	public String toString() {
+		return print(this);
+	}

@@ -1,0 +1,55 @@
+//sandwich interface
+
+public String make();
+
+//simple sandwich implementation
+
+@Override
+public String make() {
+	return "Simple Sandwich";
+}
+
+//sandwich decorator
+
+protected Sandwich customSandwich;
+
+public SandwichDecorator(Sandwich customSandwich) {
+	this.customSandwich = customSandwich;
+}
+
+public String make() {
+	return customSandwich.make();
+}
+
+//Meat Decorator
+
+public MeatDecorator(Sandwich customSandwich) {
+	super(customSandwich);
+}
+
+public String make() {
+	return customSandwich.make() + addMeat();
+}
+
+private String addMeat() {
+	return " + turkey";
+}
+
+//Dressing Decorator
+
+package com.pluralsight.decorator;
+
+public class DressingDecorator extends SandwichDecorator {
+
+	public DressingDecorator(Sandwich customSandwich) {
+		super(customSandwich);
+	}
+
+	public String make() {
+		return customSandwich.make() + addDressing();
+	}
+	
+	private String addDressing() {
+		return " + mustard";
+	}
+}
