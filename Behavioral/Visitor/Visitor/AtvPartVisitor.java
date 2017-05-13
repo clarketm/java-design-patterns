@@ -1,4 +1,4 @@
-package com.pluralsight.visitor;
+package Visitor;
 
 public interface AtvPartVisitor {
 	void visit(Wheel wheel);

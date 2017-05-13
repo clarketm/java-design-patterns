@@ -1,4 +1,4 @@
-package com.pluralsight.chain;
+package ChainOfResponsibility;
 
 public class CEO extends Handler {
 

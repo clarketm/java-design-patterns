@@ -1,4 +1,4 @@
-package com.pluralsight.command;
+package Command;
 
 //concrete Command
 public class ToggleCommand implements Command {

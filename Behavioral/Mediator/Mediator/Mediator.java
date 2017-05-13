@@ -1,4 +1,4 @@
-package com.pluralsight.mediator;
+package Mediator;
 
 import java.util.ArrayList;
 import java.util.List;

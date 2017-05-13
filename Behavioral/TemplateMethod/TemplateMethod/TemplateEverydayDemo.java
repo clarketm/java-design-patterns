@@ -1,4 +1,4 @@
-package com.pluralsight.template;
+package TemplateMethod;
 
 import java.util.ArrayList;
 import java.util.Collections;

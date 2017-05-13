@@ -1,4 +1,4 @@
-package com.pluralsight.visitor;
+package Visitor;
 
 public class Fender implements AtvPart {
 	@Override

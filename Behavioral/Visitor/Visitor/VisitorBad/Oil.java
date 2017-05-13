@@ -1,4 +1,4 @@
-package com.pluralsight.visitorbad;
+package Visitorbad;
 
 public class Oil implements AtvPart {
 	

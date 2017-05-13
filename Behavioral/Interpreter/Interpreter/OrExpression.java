@@ -1,4 +1,4 @@
-package com.pluralsight.interpreter;
+package Interpreter;
 
 public class OrExpression implements Expression {
 

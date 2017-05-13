@@ -1,4 +1,4 @@
-package com.pluralsight.abstractfactory;
+package AbstractFactory;
 
 public enum CardType {
 	GOLD, PLATINUM;

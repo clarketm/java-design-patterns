@@ -1,4 +1,4 @@
-package com.pluralsight.decorator;
+package Decorator;
 
 public class DressingDecorator extends SandwichDecorator {
 

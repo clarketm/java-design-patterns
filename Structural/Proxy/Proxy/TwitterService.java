@@ -1,4 +1,4 @@
-package com.pluralsight.proxy;
+package Proxy;
 
 public interface TwitterService {
 	public String getTimeline(String screenName);

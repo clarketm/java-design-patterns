@@ -1,4 +1,4 @@
-package com.pluralsight.prototype;
+package Prototype;
 
 public class Record {
 

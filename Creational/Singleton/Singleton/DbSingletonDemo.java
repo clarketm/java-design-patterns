@@ -1,4 +1,4 @@
-package com.pluralsight.singleton;
+package Singleton;
 
 import java.sql.Connection;
 import java.sql.SQLException;

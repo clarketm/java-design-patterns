@@ -1,4 +1,4 @@
-package com.pluralsight.factory;
+package FactoryMethod;
 
 public class ItemPage extends Page {
 

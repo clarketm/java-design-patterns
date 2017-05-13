@@ -1,4 +1,4 @@
-package com.pluralsight.decorator;
+package Decorator;
 
 public abstract class SandwichDecorator implements Sandwich {
 

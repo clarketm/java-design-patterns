@@ -1,4 +1,4 @@
-package com.pluralsight.proxy;
+package Proxy;
 
 import java.util.List;
 

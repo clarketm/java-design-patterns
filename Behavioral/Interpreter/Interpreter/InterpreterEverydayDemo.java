@@ -1,4 +1,4 @@
-package com.pluralsight.interpreter;
+package Interpreter;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

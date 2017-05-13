@@ -1,4 +1,4 @@
-package com.pluralsight.mediator;
+package Mediator;
 
 //concrete Command
 public class TurnOffAllLightsCommand implements Command {

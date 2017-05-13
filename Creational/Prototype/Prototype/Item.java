@@ -1,4 +1,4 @@
-package com.pluralsight.prototype;
+package Prototype;
 
 public abstract class Item implements Cloneable {
 	private String title;

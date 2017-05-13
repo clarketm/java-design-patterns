@@ -1,4 +1,4 @@
-package com.pluralsight.strategy;
+package Strategy;
 
 public class VisaStrategy extends ValidationStrategy {
 

@@ -1,4 +1,4 @@
-package com.pluralsight.singleton;
+package Singleton;
 
 public class SingletonEverydayDemo {
 

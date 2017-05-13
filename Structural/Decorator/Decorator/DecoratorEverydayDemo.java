@@ -1,4 +1,4 @@
-package com.pluralsight.decorator;
+package Decorator;
 
 import java.io.DataOutputStream;
 import java.io.File;

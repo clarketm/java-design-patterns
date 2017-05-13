@@ -1,4 +1,4 @@
-package com.pluralsight.command;
+package Command;
 
 //invoker
 public class Switch {

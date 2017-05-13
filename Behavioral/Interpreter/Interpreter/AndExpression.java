@@ -1,4 +1,4 @@
-package com.pluralsight.interpreter;
+package Interpreter;
 
 public class AndExpression implements Expression {
 

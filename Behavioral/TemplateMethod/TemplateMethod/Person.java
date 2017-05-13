@@ -1,4 +1,4 @@
-package com.pluralsight.template;
+package TemplateMethod;
 
 public class Person implements Comparable<Person> {
 

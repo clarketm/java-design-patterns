@@ -1,4 +1,4 @@
-package com.pluralsight.abstractfactory;
+package AbstractFactory;
 
 //AbstractProduct
 public abstract class CreditCard {

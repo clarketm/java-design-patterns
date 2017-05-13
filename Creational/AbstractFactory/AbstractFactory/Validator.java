@@ -1,4 +1,4 @@
-package com.pluralsight.abstractfactory;
+package AbstractFactory;
 
 public interface Validator {
 	public boolean isValid(CreditCard creditCard);

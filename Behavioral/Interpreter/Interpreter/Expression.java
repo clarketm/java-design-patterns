@@ -1,4 +1,4 @@
-package com.pluralsight.interpreter;
+package Interpreter;
 
 public interface Expression {
 	public boolean interpret(String context);

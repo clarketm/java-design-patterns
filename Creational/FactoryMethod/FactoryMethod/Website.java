@@ -1,4 +1,4 @@
-package com.pluralsight.factory;
+package FactoryMethod;
 
 import java.util.ArrayList;
 import java.util.List;

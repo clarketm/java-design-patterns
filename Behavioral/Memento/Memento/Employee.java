@@ -1,4 +1,4 @@
-package com.pluralsight.memento;
+package Memento;
 
 //originator
 public class Employee {

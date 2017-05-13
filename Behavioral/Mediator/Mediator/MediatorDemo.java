@@ -1,4 +1,4 @@
-package com.pluralsight.mediator;
+package Mediator;
 
 public class MediatorDemo {
 

@@ -1,4 +1,4 @@
-package com.pluralsight.interpreter;
+package Interpreter;
 
 import java.util.StringTokenizer;
 

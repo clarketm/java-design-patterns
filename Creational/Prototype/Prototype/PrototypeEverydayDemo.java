@@ -1,4 +1,4 @@
-package com.pluralsight.prototype;
+package Prototype;
 
 import java.util.ArrayList;
 import java.util.List;

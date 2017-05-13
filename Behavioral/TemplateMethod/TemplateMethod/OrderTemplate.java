@@ -1,4 +1,4 @@
-package com.pluralsight.template;
+package TemplateMethod;
 
 public abstract class OrderTemplate {
 

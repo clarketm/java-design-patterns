@@ -1,4 +1,4 @@
-package com.pluralsight.iterator;
+package Iterator;
 
 import java.util.HashSet;
 import java.util.Iterator;

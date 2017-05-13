@@ -1,4 +1,4 @@
-package com.pluralsight.strategy;
+package Strategy;
 
 import java.util.ArrayList;
 import java.util.Collections;
